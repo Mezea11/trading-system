@@ -48,7 +48,7 @@ class User
         }
     }
 
-    public bool RemoveItem(Item item)
+    public bool RemoveItem(Item item) // this bool is invoked during trading, check if reference of user item corresponds and remove before adding to other users
     {
         for (int i = 0; i < UserItems.Count; i++)
         {
