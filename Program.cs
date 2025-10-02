@@ -17,7 +17,6 @@ A user needs to be able to browse completed requests. CHECKED
  */
 
 Console.Clear();
-Shop shop = new Shop();
 List<User> users = new List<User>();
 List<Trade> trades = new List<Trade>();
 int nextTradeId = 1;
@@ -27,8 +26,6 @@ users.Add(new User("123", "123", "123"));
 users.Add(new User("mockuser", "1", "1"));
 users[0].AddItem(new Item("abc", 23.5, "mock item"));
 users[1].AddItem(new Item("banana", 225, "a fruit"));
-shop.AddItem(new Item("abc", 23.5, "mock item"));
-shop.AddItem(new Item("banana", 225, "a fruit"));
 
 bool running = true;
 User? activeUser = null;
@@ -108,7 +105,7 @@ while (true)
             else
             {
 
-                Console.WriteLine($"Welcome to the Shop");
+                Console.WriteLine($"Welcome to the Trading System.");
                 Console.WriteLine($"Select an option: ");
 
                 Console.WriteLine($"1. Add Item");
@@ -174,7 +171,6 @@ void CreateItem()
 
     Item newItem = new Item(itemName, price, information);
     activeUser.AddItem(newItem);
-    shop.AddItem(newItem);
 
     Console.WriteLine($"Item added: {newItem.ToString()}");
     Console.WriteLine($"Press Enter to continue.");
