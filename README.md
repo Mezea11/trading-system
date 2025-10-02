@@ -6,5 +6,5 @@ This is an exercise at NBI Handelsakademin.
 
 ## Run commands
 
-dotnet build
+dotnet build <br>
 dotnet run
