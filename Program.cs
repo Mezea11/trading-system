@@ -1,5 +1,4 @@
 ﻿﻿using App;
-using System.Linq;
 
 /* The following features need to be implemented:
 
@@ -111,11 +110,11 @@ while (true)
                 Console.WriteLine($"1. Add Item");
                 Console.WriteLine($"2. Display my items");
                 Console.WriteLine($"3. Search for items by user");
-                Console.WriteLine($"4. Request a trade");            // NEW
-                Console.WriteLine($"5. Browse my trade requests");    // NEW (pending received)
-                Console.WriteLine($"6. Accept a trade request");      // NEW
-                Console.WriteLine($"7. Deny a trade request");        // NEW
-                Console.WriteLine($"8. Browse completed trades");     // NEW
+                Console.WriteLine($"4. Request a trade");            
+                Console.WriteLine($"5. Browse my trade requests");    
+                Console.WriteLine($"6. Accept a trade request");      
+                Console.WriteLine($"7. Deny a trade request");        
+                Console.WriteLine($"8. Browse completed trades");     
                 Console.WriteLine($"9. Logout");
 
                 string input = Console.ReadLine() ?? "";
@@ -132,19 +131,19 @@ while (true)
                         break;
                     case "4":
                         RequestTrade();
-                        break;               // NEW
+                        break;               
                     case "5":
                         DisplayTradeRequests();
-                        break;       // NEW
+                        break;       
                     case "6":
                         AcceptTradeRequest();
-                        break;         // NEW
+                        break;         
                     case "7":
                         DenyTradeRequest();
-                        break;           // NEW
+                        break;          
                     case "8":
                         BrowseCompletedRequests();
-                        break;    // NEW
+                        break;    
                     case "9":
                         activeUser = null;
                         break;            // logout
