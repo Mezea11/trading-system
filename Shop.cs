@@ -1,5 +1,12 @@
 namespace App;
 
+
+/* 
+
+IGNORE THIS CLASS. THIS CLASS WILL BE USED FOR FUTURE SOLO VENTURES :)
+
+ */
+
 class Shop
 {
     List<Item> Items { get; set; }
@@ -21,7 +28,7 @@ class Shop
 
     public void DisplayAllItems(Item item)
     {
-        foreach(var it in Items)
+        foreach (var it in Items)
         {
             Console.WriteLine(it.ToString());
         }
