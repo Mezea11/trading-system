@@ -34,7 +34,7 @@ class User
         UserItems.Add(item);
     }
 
-   public void DisplayUserItems()
+    public void DisplayUserItems()
     {
         if (UserItems.Count == 0)
         {
@@ -47,4 +47,19 @@ class User
             Console.WriteLine(userItem.ToString());
         }
     }
+
+    public bool RemoveItem(Item item)
+    {
+        for (int i = 0; i < UserItems.Count; i++)
+        {
+            if (ReferenceEquals(UserItems[i], item))
+            {
+                UserItems.RemoveAt(i);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+
 }

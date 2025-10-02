@@ -1,30 +1,22 @@
 namespace App;
-
 enum TradeStatus {
     Pending,
     Accepted,
     Denied,
-    Completed
-}
+    Completed }
+
 class Trade
 {
-    void DisplayTradeRequests()
-    {
-        // Implementation for displaying trade requests
-    
-    }
+    public int Id { get; set; }
+    public User FromUser { get; set; }        // who sent the request
+    public User ToUser { get; set; }          // who decides (receiver)
+    public Item OfferedItem { get; set; }     // item from FromUser
+    public Item RequestedItem { get; set; }   // item from ToUser
+    public TradeStatus Status { get; set; } = TradeStatus.Pending;
 
-    void AcceptTradeRequest()
+    public override string ToString()
     {
-        // Implementation for accepting a trade request
+        return $"#{Id} {FromUser.Username} → {ToUser.Username} | " +
+               $"Offer: {OfferedItem.ItemName} for {RequestedItem.ItemName} | {Status}";
     }
-    void DenyTradeRequest()
-    {
-        // Implementation for denying a trade request
-    }
-    void BrowseCompletedRequests()
-    {
-        // Implementation for browsing completed requests
-    }
-
 }
