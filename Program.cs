@@ -22,10 +22,12 @@ List<Trade> trades = new List<Trade>();
 int nextTradeId = 1;
 
 
-users.Add(new User("123", "123", "123"));
-users.Add(new User("mockuser", "1", "1"));
-users[0].AddItem(new Item("abc", 23.5, "mock item"));
-users[1].AddItem(new Item("banana", 225, "a fruit"));
+users.Add(new User("chris", "chris@mail.com", "1"));
+users.Add(new User("evilChris", "evilChris@mail.com", "1"));
+users[0].AddItem(new Item("apple", 23.5, "a fruit"));
+users[1].AddItem(new Item("banana", 225, "also a fruit"));
+users[0].AddItem(new Item("gucci bag", 225, "disgusting"));
+users[1].AddItem(new Item("versace banana", 225, "a trendy fruit"));
 
 bool running = true;
 User? activeUser = null;
@@ -321,7 +323,7 @@ void RequestTrade()
 
     Item requested = target.Items[requestedIndex - 1]; // set item to target.Items, -1 to remove fake index
 
-    // Choose offered item (from you)
+    // Choose offered item (from you) SAME LOGIC AS ABOVE JUST REVERSED
     Console.WriteLine($"\nYour items:");
     for (int i = 0; i < activeUser.Items.Count; i++)
     {
@@ -343,8 +345,8 @@ void RequestTrade()
     Trade trade = new Trade
     {
         Id = nextTradeId++, // nextTradeId is defined at the top. set to 1, its to create a new id for index
-        FromUser = activeUser,
-        ToUser = target,
+        FromUser = activeUser, // setting item in users inventory
+        ToUser = target, // from user to reciever
         OfferedItem = offered,
         RequestedItem = requested,
         Status = TradeStatus.Pending
@@ -363,11 +365,11 @@ void DisplayTradeRequests()
     Console.Clear();
 
     Console.WriteLine("=== Pending trade requests for you ===");
-    int shown = 0;
+    int shown = 0; // Counts amount of trades shown. If none are shown, stays at zero and prints fallback code
     for (int i = 0; i < trades.Count; i++)
     {
         Trade trade = trades[i];
-        if (trade.ToUser == activeUser && trade.Status == TradeStatus.Pending)
+        if (trade.ToUser == activeUser && trade.Status == TradeStatus.Pending) // if there are trades on active user and trade status is pending, show trades
         {
             Console.WriteLine(trade.ToString());
             shown++;
@@ -377,6 +379,12 @@ void DisplayTradeRequests()
     {
         Pause("(none)");
     }
+    else
+    {
+        Console.WriteLine("Press enter to continue");
+        Console.ReadLine();
+    }
+    
 }
 
 void AcceptTradeRequest()
@@ -469,11 +477,10 @@ void BrowseCompletedRequests()
         }
     }
     if (shown == 0)
-    {
         Console.WriteLine("(none)");
         Console.WriteLine("Press Enter to continue.");
         Console.ReadLine();
-    }
+    
 }
 
 

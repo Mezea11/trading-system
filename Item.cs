@@ -4,7 +4,6 @@ class Item
 {
     public string ItemName { get; set; }
     public double Price { get; set; }
-
     public string Information {get; set;}
 
     public Item(string itemName, double price, string information)
