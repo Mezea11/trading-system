@@ -15,7 +15,7 @@ Ett enkelt konsolbaserat tradingsystem där användare kan registrera sig, logga
 - **Kör:**
 
   ```bash
-  dotnet run --project ./<projektmapp>
+  dotnet run --program.cs ./<trading-system>
   ```
 
 ## Användning (flöde)
@@ -47,7 +47,6 @@ Jag valde att hålla designen enkel och fokuserad på grundläggande funktionali
 - Inga trades kan initieras på egna objekt.
 - Accept kräver att förfrågan är _Pending_ och att rätt användare godkänner.
 - If satser kollar om objekt är null, tomma värden eller om användare inte har objekt att byta
--
 
 ## Begränsningar & vidare arbete
 
